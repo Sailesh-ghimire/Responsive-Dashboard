@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# Responsive Dashboard with Authentication
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a responsive dashboard application built with React and Tailwind CSS. It includes a login page with validation, a mocked login API for authentication, Redux for state management, and TypeScript for type safety.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Responsive Design**: Works on both desktop and mobile screens.
+- **Login Page**: With email and password validation.
+- **Loading Animation**: Indicates when data is being fetched.
+- **Protected Routes**: Prevents access to authenticated routes without login.
+- **Redux State Management**: Manages authentication state.
+- **TypeScript**: Enhances code quality and maintainability.
 
-### `npm start`
+## Setup and Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js (>= 12.x)
+- npm (>= 6.x) or yarn (>= 1.x)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository**:
 
-### `npm run build`
+   ```sh
+   git clone https://github.com/your-username/responsive-dashboard.git
+   cd responsive-dashboard
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Run the application**:
 
-### `npm run eject`
+   ```sh
+   npm start
+   # or
+   yarn start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. **Access the application**:
+   Open your browser and go to `http://localhost:3000`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+src/
+├── auth/
+│ ├── authApi.ts
+├── components/
+│ ├── Footer.tsx
+│ ├── Loading.tsx
+│ ├── Navbar.tsx
+│ ├── PrivateRoute.tsx
+│ ├── PublicRoute.tsx
+├── pages/
+│ ├── DashboardPage.tsx
+│ ├── LoginPage.tsx
+├── store/
+│ ├── authSlice.ts
+│ ├── index.ts
+├── App.tsx
+├── index.tsx
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Predefined credentials
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+const MOCK_EMAIL = 'test@mail.com';
+const MOCK_PASSWORD = 'test';
+const AUTH_TOKEN = 'auth-token';
