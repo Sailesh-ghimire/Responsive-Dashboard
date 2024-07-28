@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Responsive-Dashboard/static/css/main.35a6b337.css",
+    "main.js": "/Responsive-Dashboard/static/js/main.77564eb7.js",
+    "index.html": "/Responsive-Dashboard/index.html",
+    "main.35a6b337.css.map": "/Responsive-Dashboard/static/css/main.35a6b337.css.map",
+    "main.77564eb7.js.map": "/Responsive-Dashboard/static/js/main.77564eb7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35a6b337.css",
+    "static/js/main.77564eb7.js"
+  ]
+}
