@@ -24,5 +24,5 @@ export const loginApi = (
 };
 
 export const logoutApi = () => {
-  localStorage.removeItem('token'); // Remove the token
+  localStorage.removeItem('token');
 };

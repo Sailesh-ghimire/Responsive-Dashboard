@@ -1,68 +1,78 @@
 import { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import LoadingAnimation from '../components/Loading';
 import { useTheme } from '../components/Theme';
 
+import image1 from '../images/img1.jpg';
+import image2 from '../images/img2.jpg';
+import image3 from '../images/img3.jpg';
+import Footer from '../components/Footer';
+import png from '../images/png-transparent-logo-contracting-photography-logo-symbol.png';
+
+import Leftsidebar from '../components/Leftsidebar';
+import MainTable from '../components/MainTable';
+import Rightsidebar from '../components/Rightsidebar';
+
 const Dashboard = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<string | null>(null);
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setTimeout(() => {
-        setData('Sample data loaded');
-        setLoading(false);
-      }, 1000);
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <LoadingAnimation />;
-  }
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div
-      className={`min-h-screen ${
-        theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
-      } flex flex-col`}
-    >
-      <Navbar />
-      <div className='flex-grow container mx-auto p-6'>
-        <h1 className='text-3xl font-bold mb-4'>Welcome to the Dashboard!</h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-          <div
-            className={`p-4 ${
-              theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
-            } rounded shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500`}
-          >
-            <h2 className='text-xl font-bold mb-2'>Card 1</h2>
-            <p>{data} for card 1.</p>
-          </div>
-          <div
-            className={`p-4 ${
-              theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
-            } rounded shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500`}
-          >
-            {' '}
-            <h2 className='text-xl font-bold mb-2'>Card 2</h2>
-            <p>{data} for card 2.</p>
-          </div>
-          <div
-            className={`p-4 ${
-              theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
-            } rounded shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500`}
-          >
-            {' '}
-            <h2 className='text-xl font-bold mb-2'>Card 3</h2>
-            <p>{data} for card 3.</p>
-          </div>
+    <div className='relative h-screen flex flex-col'>
+      <div className='absolute inset-0 h-[50vh]'>
+        <div
+          className='absolute inset-0 bg-cover bg-center'
+          style={{ backgroundImage: `url(${image1})`, backgroundSize: 'cover' }}
+        >
+          <div className='absolute inset-0 bg-black opacity-50'></div>
         </div>
       </div>
-      <Footer />
+      <div className='absolute bottom-0 inset-x-0 h-[50vh] bg-gray-900 z-10'></div>
+
+      <div className='flex-grow flex flex-col z-20'>
+        <div className='flex flex-grow'>
+          <div className='hidden lg:block w-16 flex-shrink-0'>
+            <Leftsidebar />
+          </div>
+
+          <div className='flex-grow ml-8 mr-32 flex flex-col'>
+            <div className='flex-grow overflow-y-auto pt-28'>
+              <MainTable />
+            </div>
+          </div>
+
+          <div className='hidden lg:block w-32 flex-shrink-0'>
+            <Rightsidebar />
+          </div>
+          <button
+            className='lg:hidden fixed top-4 right-4 z-30 p-2 rounded-full bg-gray-800 text-white'
+            onClick={() => setShowSidebar(!showSidebar)}
+          >
+            ☰
+          </button>
+        </div>
+
+        <div className='h-12 flex-shrink-0'>
+          <Footer />
+        </div>
+      </div>
+
+      {showSidebar && (
+        <div className='lg:hidden fixed inset-0 bg-gray-900 bg-opacity-80 z-20 flex flex-col'>
+          <div className='p-4'>
+            <button
+              className='text-white text-2xl'
+              onClick={() => setShowSidebar(false)}
+            >
+              ×
+            </button>
+          </div>
+          <Rightsidebar />
+        </div>
+      )}
+
+      <div className='lg:hidden fixed bottom-0 inset-x-0 bg-gray-800 p-4 flex justify-center'>
+        <Leftsidebar />
+      </div>
     </div>
   );
 };
