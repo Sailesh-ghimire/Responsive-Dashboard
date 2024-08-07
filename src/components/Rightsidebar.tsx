@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Rightsidebar = () => {
   return (
     <div
@@ -78,9 +76,6 @@ const Rightsidebar = () => {
           </div>
           <div className='bg-gray-600 bg-opacity-50 p-2 rounded shadow-sm'>
             <span className='text-white text-xs'>Notification 2</span>
-          </div>
-          <div className='bg-gray-600 bg-opacity-50 p-2 rounded shadow-sm'>
-            <span className='text-white text-xs'>Notification 3</span>
           </div>
         </div>
       </div>

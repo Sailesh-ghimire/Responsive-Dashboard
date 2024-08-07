@@ -1,15 +1,11 @@
-import { useDispatch } from 'react-redux';
-import { logout } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './Theme';
 
 const Navbar = () => {
   const { toggleTheme } = useTheme();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logout());
     localStorage.removeItem('token');
     navigate('/login');
   };

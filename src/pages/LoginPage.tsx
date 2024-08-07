@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { loginFailure, loginRequest, loginSuccess } from '../store/authSlice';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../auth/authApi';
 import { toast, ToastContainer } from 'react-toastify';
@@ -22,10 +20,7 @@ const loginSchema = z.object({
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
 const Login = () => {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
 
@@ -38,16 +33,13 @@ const Login = () => {
   });
 
   const handleLogin = async (data: LoginFormInputs) => {
-    dispatch(loginRequest());
     try {
       const response = await loginApi(data.email, data.password);
       if (response.success) {
-        dispatch(loginSuccess(data.email));
         toast.success('Login successful');
         navigate('/dashboard');
       }
     } catch (err: any) {
-      dispatch(loginFailure());
       setError(err.message);
       toast.error('Invalid email or password');
     }
