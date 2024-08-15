@@ -69,5 +69,5 @@ src/
 ## Predefined credentials
 
 const MOCK_EMAIL = 'test@mail.com';
-const MOCK_PASSWORD = 'test';
+const MOCK_PASSWORD = 'test123';
 const AUTH_TOKEN = 'auth-token';
