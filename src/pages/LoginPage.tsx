@@ -68,6 +68,17 @@ const Login = () => {
         } rounded-lg shadow-lg`}
       >
         <h2 className='text-3xl font-bold text-center mb-6'>Login</h2>
+
+        <div className='mb-4 text-center'>
+        <p className='text-sm'>
+          <strong>Username:</strong> test@mail.com
+        </p>
+        <p className='text-sm'>
+          <strong>Password:</strong> test123
+        </p>
+      </div>
+
+
         <form onSubmit={handleSubmit(handleLogin)} className='space-y-4'>
           <div className='space-y-2'>
             <label className='block text-sm font-medium'>Email</label>
